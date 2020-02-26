@@ -1,0 +1,15 @@
+.css-preview {
+  width: 500px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.css-preview > textarea {
+  width: 250px;
+  min-height: 150px;
+  max-height: 350px;
+  resize: vertical;
+  border: 3px solid #000;
+}
