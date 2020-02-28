@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { uniqueId } from 'lodash';
+import PropTypes from 'prop-types';
 
 import './style.css';
 
@@ -8,7 +9,9 @@ const topRightInputId = uniqueId('radius_input_');
 const bottomLeftInputId = uniqueId('radius_input_');
 const bottomRightInputId = uniqueId('radius_input_');
 
-function Box() {
+function Box(props) {
+  const { onChange } = props;
+
   const [editAllRadiuses, setEditAllRadiuses] = useState(true);
   const [radiuses, setRadiuses] = useState({
     topLeft: 0,
@@ -32,6 +35,10 @@ function Box() {
       });
     }
   }
+
+  useEffect(() => {
+    onChange(JSON.stringify(radiuses, null, 2));
+  }, [radiuses, onChange]);
 
   return (
     <div className="box">
@@ -96,5 +103,9 @@ function Box() {
     </div>
   );
 }
+
+Box.propTypes = {
+  onChange: PropTypes.func.isRequired
+};
 
 export default Box;
