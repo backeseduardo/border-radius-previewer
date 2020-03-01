@@ -4,7 +4,7 @@ import Box from './box';
 import CssPreview from './css-preview';
 
 function App() {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState({});
 
   return (
     <div className="App">

@@ -1,11 +1,23 @@
 :root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
   --theme: #1f1f1f;
   --theme-secondary: #4e4e4e;
   --primary: #e0e0e0;
+  --content-width: 16rem;
 }
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  outline: none;
 }
 
 html,
@@ -13,40 +25,6 @@ body,
 #root {
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body,
-input,
-button {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-input,
-button {
-  padding: 0;
-  margin: 0;
-  background: none;
-  border: none;
-  outline: none;
 }
 
 button {
@@ -57,18 +35,18 @@ button,
 input,
 textarea {
   padding: 10px;
-  border: 3px solid #000;
+  border: 0.2rem solid #000;
   font-weight: bold;
-  box-shadow: 1px 1px 0 #000;
+  box-shadow: 0.05rem 0.05rem 0 #000;
   transition: box-shadow ease-in-out 300ms;
 }
 
 button:hover {
-  box-shadow: 2px 2px 0 #000;
+  box-shadow: 0.1rem 0.1rem 0 #000;
 }
 
 button:active {
-  box-shadow: inset 3px 3px 0 #000;
+  box-shadow: inset 0.2rem 0.2rem 0 #000;
 }
 
 input[type='number']::-webkit-inner-spin-button,

@@ -1,5 +1,5 @@
 .css-preview {
-  width: 500px;
+  width: 30rem;
 
   display: flex;
   flex-direction: column;
@@ -7,13 +7,14 @@
 }
 
 .css-preview > textarea {
-  width: 250px;
-  min-height: 150px;
-  max-height: 350px;
+  width: var(--content-width);
+  min-height: 9rem;
+  max-height: 22rem;
   resize: vertical;
+  font-size: 0.68rem;
 }
 
 .css-preview__button {
-  width: 250px;
-  margin-bottom: 10px;
+  width: var(--content-width);
+  margin-bottom: 1rem;
 }

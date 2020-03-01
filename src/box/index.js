@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { uniqueId } from 'lodash';
 import PropTypes from 'prop-types';
 
@@ -19,26 +19,32 @@ function Box(props) {
     bottomLeft: 0,
     bottomRight: 0
   });
+  const topLeftRef = useRef();
 
   function handleRadiusInputChange({ target }) {
     if (editAllRadiuses) {
       setRadiuses(
         Object.keys(radiuses).reduce(
-          (obj, key) => ({ ...obj, [key]: target.value }),
+          (obj, key) => ({ ...obj, [key]: parseInt(target.value, 10) || 0 }),
           {}
         )
       );
     } else {
       setRadiuses({
         ...radiuses,
-        [target.name]: target.value
+        [target.name]: parseInt(target.value, 10) || 0
       });
     }
   }
 
   useEffect(() => {
-    onChange(JSON.stringify(radiuses, null, 2));
+    onChange(radiuses);
   }, [radiuses, onChange]);
+
+  useEffect(() => {
+    topLeftRef.current.focus();
+    topLeftRef.current.select();
+  }, []);
 
   return (
     <div className="box">
@@ -48,6 +54,7 @@ function Box(props) {
           <input
             type="number"
             name="topLeft"
+            ref={topLeftRef}
             id={topLeftInputId}
             value={radiuses.topLeft}
             onChange={handleRadiusInputChange}
@@ -71,7 +78,7 @@ function Box(props) {
       <div
         className="box__preview"
         style={{
-          borderRadius: `${radiuses.topLeft}px ${radiuses.topRight}px ${radiuses.bottomLeft}px ${radiuses.bottomRight}px`
+          borderRadius: `${radiuses.topLeft}px ${radiuses.topRight}px ${radiuses.bottomRight}px ${radiuses.bottomLeft}px`
         }}
       ></div>
 
